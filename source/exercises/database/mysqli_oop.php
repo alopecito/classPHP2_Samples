@@ -1,16 +1,5 @@
 <?php
 
-//
-// Exercise - 1:
-// Define an Item class with the attributes of: ID, Name and Price
-//
-// Exercise - 2:
-// Use mysqli_result::fetch_object to fetch the result set in to an instance of that class
-// http://php.net/manual/en/mysqli-result.fetch-object.php
-// 
-// Exercise - 3:
-// Use xdebug for better debugging capabilities
-
 class Item {
     public $ID;
     public $Name;
@@ -34,9 +23,21 @@ if (!$result) {
     return;
 }
 
-while ($row = $result->fetch_row()) {
-    printf ("%d - %s (%s)\n<br/>", $row[0], $row[1], $row[2]);
+// solution 
+
+while ($row = $result->fetch_object('Item')) {
+
+var_dump($row);
+echo "<br>";
+   
 }
+
+
+// while ($row = $result->fetch_row()) {
+
+
+//     printf ("%d - %s (%s)\n<br/>", $row[0], $row[1], $row[2]);
+// }
 
 
 // free result set
