@@ -1,0 +1,302 @@
+$ld1.st Run GIT - USE PORTABLE VERSION!
+
+2, get account in GIThub , look for teacher information
+
+3. in GIThub, generate SSH keys -look help to get link
+
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/ 
+
+
+	Commands:
+		Control L < Clear screen
+		$ls .
+ 		$ cat ~/.ssh/id_rsa.pub <<Generate the SSH key -Public
+
+4. Copy code in the new SSH key genrator screen : KEY GitHub
+
+
+Once key is created, I can work in GIT without password
+
+this is the Teachers github
+
+git clone 
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~
+$ cd
+
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~
+$ cd Desktop/
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~/Desktop
+$ ls -al
+
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~/Desktop
+$ cd cewp
+
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~/Desktop/cewp
+
+$ git clone git@github.com:majidfn/CEWP-559-fall-2017.git  <<copy the link from GIT here
+
+
+Cloning into 'CEWP-559-fall-2017'...
+The authenticity of host 'github.com (192.30.253.113)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.113' (RSA) to the list of known hosts.
+remote: Counting objects: 54, done.
+remote: Compressing objects: 100% (30/30), done.
+remote: Total 54 (delta 11), reused 54 (delta 11), pack-reused 0
+Receiving objects: 100% (54/54), 373.83 KiB | 602.00 KiB/s, done.
+Resolving deltas: 100% (11/11), done.
+
+
+T_OPEZ@CCE-FB133-14W MINGW64 ~/Desktop/cewp
+$
+
+///// to use this in another computer
+
+$ cat ~/.ssh/id_rsa.pub  // will create the key to : https://github.com/settings/keys 
+then  i Have to create a new key - to sync the new desktop with 
+
+//to clone repository from teacher
+
+$ git clone git@github.com:majidfn/CEWP-559-fall-2017.git
+
+cd
+
+
+2nd Session
+
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~
+$ cd ~/Desktop/CEWP-559-fall-2017/
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ docker ps
+CONTAINER ID        IMAGE                  COMMAND                  CREATED                    STATUS              PORTS                                        NAMES
+47c30b752c4a        cewp559fall2017_php7   "docker-php-entryp..."   24 minutes a       go      Up 24 minutes       0.0.0.0:80->80/tcp, 0.0.0.0:8080->8080/tcp   PHP7
+2b310cc6694e        mysql                  "docker-entrypoint..."   24 minutes a       go      Up 24 minutes       0.0.0.0:4406->3306/tcp                       MySQL
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ docker ps
+CONTAINER ID        IMAGE                  COMMAND                  CREATED                              NAMES
+47c30b752c4a        cewp559fall2017_php7   "docker-php-entryp..."   24 minutes ago     :8080->8080/tcp   PHP7
+2b310cc6694e        mysql                  "docker-entrypoint..."   24 minutes ago                       MySQL
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git branch
+* master
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git branch -a
+* master
+  remotes/origin/20170928
+  remotes/origin/20170928-project
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote remove origin
+
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote add origin git@github.com:alopecito/classPHP2_Samples.git
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote git@github.com:majidfn/CEWP-559-fall-2017.git
+error: Unknown subcommand: git@github.com:majidfn/CEWP-559-fall-2017.git
+usage: git remote [-v | --verbose]
+   or: git remote add [-t <branch>] [-m <master>] [-f] [--tags | --no-tags] [--mirror=<
+   or: git remote rename <old> <new>
+   or: git remote remove <name>
+   or: git remote set-head <name> (-a | --auto | -d | --delete | <branch>)
+   or: git remote [-v | --verbose] show [-n] <name>
+   or: git remote prune [-n | --dry-run] <name>
+   or: git remote [-v | --verbose] update [-p | --prune] [(<group> | <remote>)...]
+   or: git remote set-branches [--add] <name> <branch>...
+   or: git remote get-url [--push] [--all] <name>
+   or: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    -v, --verbose         be verbose; must be placed before a subcommand
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote add git@github.com:majidfn/CEWP-559-fall-2017.git
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git branch
+* master
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git branch -a
+* master
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote
+origin
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote add git@github.com:majidfn/CEWP-559-fall-2017.git
+
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote add majid git@github.com:majidfn/CEWP-559-fall-2017.git
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote
+majid
+origin
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote show origin
+ssh: connect to host github.com port 22: Connection timed out
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git remote show origin
+Connection reset by 192.30.253.112 port 22
+* remote origin
+  Fetch URL: git@github.com:alopecito/classPHP2_Samples.git
+  Push  URL: git@github.com:alopecito/classPHP2_Samples.git
+  HEAD branch: master
+  Remote branch:
+    master new (next fetch will store in remotes/origin)
+  Local ref configured for 'git push':
+    master pushes to master (up to date)
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git fetch majid -a
+From github.com:majidfn/CEWP-559-fall-2017
+ * [new branch]      20170928         -> majid/20170928
+ * [new branch]      20170928-project -> majid/20170928-project
+ * [new branch]      master           -> majid/master
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (master)
+$ git checkout 20170928
+
+Switched to a new branch '20170928'
+Branch 20170928 set up to track remote branch 20170928 from majid.
+
+T_OPEZ@CCE-FB133-08W MINGW64 ~/Desktop/CEWP-559-fall-2017 (20170928)
+$
+
+4th Session
+
+
+
+t_opez@CCE-FB133-06W MINGW64 /
+$ cd CEWP-559-fall-2017/
+
+t_opez@CCE-FB133-06W MINGW64 /CEWP-559-fall-2017 (master)
+$ git checkout project-skeleton
+Switched to a new branch 'project-skeleton'
+Branch project-skeleton set up to track remote branch project-skeleton from origin.
+
+t_opez@CCE-FB133-06W MINGW64 /CEWP-559-fall-2017 (project-skeleton)
+$ docker-compose.exe build
+
+
+t_opez@CCE-FB133-06W MINGW64 /CEWP-559-fall-2017 (project-skeleton)
+$ docker-compose.exe up
+
+
+Once its running open the app POSTMAN
+
+In the section POST -see word file
+
+
+Class 6
+
+
+t_opez@CCE-FB133-06W MINGW64 /
+$ cd
+
+t_opez@CCE-FB133-06W MINGW64 ~
+$ cd Desktop/
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop
+$ cd CEWP-559-fall-2017/
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop/CEWP-559-fall-2017 (class-20171026)
+$ cd..
+bash: cd..: command not found
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop/CEWP-559-fall-2017 (class-20171026)
+$ cd..
+bash: cd..: command not found
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop/CEWP-559-fall-2017 (class-20171026)
+$ cd
+
+t_opez@CCE-FB133-06W MINGW64 ~
+$ cd Desktop/CEWP-559-fall-2017/
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop/CEWP-559-fall-2017 (class-20171026)
+$ docker ps
+
+CONTAINER ID        IMAGE                  COMMAND                  CREATED                                                           STATUS              PORTS                                        NAMES
+0977cb2700b8        cewp559fall2017_php7   "docker-php-entryp..."   26 minutes a                                              go      Up 26 minutes       0.0.0.0:80->80/tcp, 0.0.0.0:8080->8080/tcp   cewp559                                              fall2017_php7_1
+417ede79c03f        mysql                  "docker-entrypoint..."   26 minutes a                                              go      Up 26 minutes       0.0.0.0:4406->3306/tcp                       cewp559                                              fall2017_mysql_1
+
+
+
+t_opez@CCE-FB133-06W MINGW64 ~/Desktop/CEWP-559-fall-2017 (class-20171026)
+$ winpty docker exec -it 0977cb2700b8 bash
+
+
+
+
+@0977cb2700b8:/var/www/html/api# php -f email.php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
