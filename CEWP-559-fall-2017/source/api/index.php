@@ -2,6 +2,9 @@
 
 require_once __DIR__.'/loader.php';
 
+
+error_log('API is starting!');
+
 /**
  * Path Parts:
  * 
@@ -17,7 +20,6 @@ require_once __DIR__.'/loader.php';
  * POST: is the `method`
  * 
  */
-error_log('Application is starting!');
 
 $baseURL = strtok($_SERVER["REQUEST_URI"],'?');
 
@@ -47,6 +49,10 @@ if ($mysqli->connect_errno) {
 }
 
 
+$userModel = new UserModel($mysqli);
+$userController = new UserController($userModel);
+
+
 try {
     // Make sure if we have any JSON data as input, it's valid, otherwise throw an exception
     if (!empty($requestBody) && json_last_error() != 0){
@@ -55,6 +61,10 @@ try {
 
     switch ($resource) {
         case 'items':
+
+        $userController->verify($requestHeaders);
+
+
         $model = new ItemModel($mysqli);
         $controller = new ItemController($model);
         
@@ -62,6 +72,7 @@ try {
             $data = $controller->upload($id, $_FILES['new_item_image']);
             
         } elseif ($method == 'POST') {
+            $userController->isAdmin($requestHeaders);
             $data = $controller->create($requestJSON);
             
         } elseif ($method == 'GET' && !empty($id)) {
@@ -94,31 +105,26 @@ try {
         
         break;
 
+
         case 'users':
-        $userModel = new UserModel($mysqli);
-        $userController = new UserController($userModel);
-        
         if ($method == 'POST') {
-            $data = $userController->create($requestJSON);
+            $data = $userController->create($requestJSON);  
+
         }
-        
         break;
 
+
         case 'login':
-        $userModel = new UserModel($mysqli);
-        $userController = new UserController($userModel);
-        
         if ($method == 'POST') {
-            $data = $userController->login($requestJSON);
+            $data = $userController->login($requestJSON); 
+
         }
-        
-        break;
+        break;        
+
         
         default:
         throw new Exception("$method is not implemented on: $baseURL ", 501); // 501: Not Implemented!
         break;
-
-
     }
     
 } catch (Exception $e) {
